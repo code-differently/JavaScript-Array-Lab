@@ -35,26 +35,52 @@ class ArrayUtils {
     return true;
   }
 
-  fill(original, value) {}
+  fill(original, value) {
+    for (let i = 0; i < original.length; i++) {
+      original[i] = value;
+    }
+    return original;
+  }
 
   indexOf(original, value) {
+    for (let i = 0; i < original.length; i++) {
+      if (original[i] === value) return i;
+    }
     return -1;
   }
 
   remove(original, value) {
-    return original;
+    let newArray = [];
+    for (let e of original) {
+      if (e !== value) newArray.push(e);
+    }
+
+    return newArray;
   }
 
-  reverse(original) {}
+  reverse(original) {
+    let reversedArr = [];
+    for (let e of original) {
+      reversedArr.unshift(e);
+    }
+    return reversedArr;
+  }
 }
 
+// Create reference to class
 const arrayUtils = new ArrayUtils();
+
+// Given
 let array = [1, 2, 3, 4, 5];
 let array2 = [1, 2, 3, 4, 5];
-let array3 = ["cat", "dog", "penguine"];
 
-console.log(arrayUtils.isEmpty(array));
-console.log(arrayUtils.append(array, 6));
-console.log(arrayUtils.clone(array));
-console.log(arrayUtils.subArray(array, 2, 4));
-console.log(arrayUtils.equals(array, array2)); // should return false because append() adds another element to the first array.
+// Print returned values
+// console.log(arrayUtils.isEmpty(array));
+// console.log(arrayUtils.append(array, 6));
+// console.log(arrayUtils.clone(array));
+// console.log(arrayUtils.subArray(array, 2, 4));
+// console.log(arrayUtils.equals(array, array2));
+// console.log(arrayUtils.fill(array, 20));
+// console.log(arrayUtils.indexOf(array, 3));
+// console.log(arrayUtils.remove(array, 3));
+console.log(arrayUtils.reverse(array, 3));
