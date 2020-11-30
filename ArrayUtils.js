@@ -79,14 +79,15 @@ class ArrayUtils{
 
     // Step 9
     reverseArray(arr) {
-        let newArray = [];
-        for (i = arr.length - 1; i >= 0; i--) {
-          newArray.push(arr[i]);
+            var numArr = arr.length;    
+            var newArr = [];    
+            for (i = 0; i < numArr; i++) {      
+                let inArr = arr;
+                newArr[i] = inArr.pop(i);       
+            }
+            return newArr;
         }
-        return newArray;
-      }
-    
-}
+        
 
 
 // Create reference
